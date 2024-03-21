@@ -2,7 +2,12 @@
 
 import { useMediaQuery } from "@/lib/use-media-query";
 
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 import { ChevronsLeft } from "lucide-react";
 
@@ -19,14 +24,16 @@ import irelandFlag from "@/assets/flags/ireland.png";
 
 function CountryLink({ href, name, photo }) {
   return (
-    <Link className="flex items-center justify-start gap-3" href={href}>
-      <Image
-        className="w-7 rounded-[50%] shadow-lg shadow-zinc-400"
-        alt={`${name} flag`}
-        src={photo}
-      ></Image>
-      <span className="text-2xl ">{name}</span>
-    </Link>
+    <SheetClose asChild>
+      <Link className="flex items-center justify-start gap-3" href={href}>
+        <Image
+          className="w-7 rounded-[50%] shadow-lg shadow-zinc-400"
+          alt={`${name} flag`}
+          src={photo}
+        ></Image>
+        <span className="text-2xl ">{name}</span>
+      </Link>
+    </SheetClose>
   );
 }
 
@@ -48,19 +55,25 @@ export default function Sidebar() {
                   <h2 className="text-2xl font-semibold ">Quick Access</h2>
                   <div className="ml-1 space-y-4">
                     <li>
-                      <Link className="text-2xl" href="/mobilities">
-                        Mobilities
-                      </Link>
+                      <SheetClose asChild>
+                        <Link className="text-2xl" href="/mobilities">
+                          Mobilities
+                        </Link>
+                      </SheetClose>
                     </li>
                     <li>
-                      <Link className="text-2xl" href="/blog">
-                        Blog
-                      </Link>
+                      <SheetClose asChild>
+                        <Link className="text-2xl" href="/blog">
+                          Blog
+                        </Link>
+                      </SheetClose>
                     </li>
                     <li>
-                      <Link className="text-2xl" href="/footprint">
-                        Footprint
-                      </Link>
+                      <SheetClose asChild>
+                        <Link className="text-2xl" href="/footprint">
+                          Footprint
+                        </Link>
+                      </SheetClose>
                     </li>
                   </div>
                 </menu>
@@ -70,39 +83,49 @@ export default function Sidebar() {
                   </h2>
                   <div className="ml-1 space-y-6">
                     <li>
-                      <CountryLink
-                        name="Türkiye"
-                        href="/turkiye"
-                        photo={turkiyeFlag}
-                      />
+                      <SheetClose asChild>
+                        <CountryLink
+                          name="Türkiye"
+                          href="/turkiye"
+                          photo={turkiyeFlag}
+                        />
+                      </SheetClose>
                     </li>
                     <li>
-                      <CountryLink
-                        name="Poland"
-                        href="/poland"
-                        photo={polandFlag}
-                      />
+                      <SheetClose asChild>
+                        <CountryLink
+                          name="Poland"
+                          href="/poland"
+                          photo={polandFlag}
+                        />
+                      </SheetClose>
                     </li>
                     <li>
-                      <CountryLink
-                        name="Croatia"
-                        href="/croatia"
-                        photo={croatiaFlag}
-                      />
+                      <SheetClose asChild>
+                        <CountryLink
+                          name="Croatia"
+                          href="/croatia"
+                          photo={croatiaFlag}
+                        />
+                      </SheetClose>
                     </li>
                     <li>
-                      <CountryLink
-                        name="Romania"
-                        href="/romania"
-                        photo={romaniaFlag}
-                      />
+                      <SheetClose asChild>
+                        <CountryLink
+                          name="Romania"
+                          href="/romania"
+                          photo={romaniaFlag}
+                        />
+                      </SheetClose>
                     </li>
                     <li>
-                      <CountryLink
-                        name="Ireland"
-                        href="/ireland"
-                        photo={irelandFlag}
-                      />
+                      <SheetClose asChild>
+                        <CountryLink
+                          name="Ireland"
+                          href="/ireland"
+                          photo={irelandFlag}
+                        />
+                      </SheetClose>
                     </li>
                   </div>
                 </menu>
