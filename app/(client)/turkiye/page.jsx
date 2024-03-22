@@ -12,6 +12,10 @@ import VMTurcalet from "@/assets/turcia/vmTurcia.jpg";
 import VMTurcalet2 from "@/assets/turcia/vmTurcia2.jpg";
 const VMPhotos = [VMTurcalet, VMTurcalet2];
 
+export const metadata = {
+  title: "Türkiye | BITL Blog",
+};
+
 export default function TurkiyePage() {
   return (
     <main>

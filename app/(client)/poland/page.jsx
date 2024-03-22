@@ -22,6 +22,10 @@ const TPMPhotos = [TPMPoland4, TPMPoland1, TPMPoland2];
 
 import Image from "next/image";
 
+export const metadata = {
+  title: "Poland | BITL Blog",
+};
+
 export default function PolandPage() {
   return (
     <main>

@@ -8,6 +8,10 @@ import TPMIreland3 from "@/assets/ireland/tpmIreland3.jpg";
 
 const TPMPhotos = [TPMIreland1, TPMIreland2, TPMIreland3];
 
+export const metadata = {
+  title: "Ireland | BITL Blog",
+};
+
 export default function IrelandPage() {
   return (
     <main>

@@ -28,6 +28,10 @@ const TPMPhotos = [TPMBuc1, TPMBuc2, TPMBuc3];
 
 import Image from "next/image";
 
+export const metadata = {
+  title: "Romania | BITL Blog",
+};
+
 export default function RomaniaPage() {
   return (
     <main>

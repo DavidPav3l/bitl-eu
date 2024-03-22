@@ -33,6 +33,10 @@ const flags = [
   { flag: TurkeyFalg, country: "turkiye" },
 ];
 
+export const metadata = {
+  title: "Mobilities | BITL Blog",
+};
+
 function Objective({ children, title }) {
   return (
     <div className="flex flex-col items-center justify-center gap-5 rounded border p-6 transition-all duration-300 hover:scale-[102%] min-[425px]:flex-row">
@@ -108,7 +112,7 @@ function Activities({
                 key={index}
                 className="flex items-center justify-center gap-5"
               >
-                <Link href={`/${country.country}#${anco}`}>
+                <Link href={`/${country.country}`}>
                   <Image
                     src={country.flag}
                     alt={country.country}

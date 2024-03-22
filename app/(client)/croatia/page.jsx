@@ -18,6 +18,10 @@ import day6 from "@/assets/croatia/Croatia_day_6.jpg";
 
 import Image from "next/image";
 
+export const metadata = {
+  title: "Croatia | BITL Blog",
+};
+
 export default function CroatiaPage() {
   return (
     <main className="">

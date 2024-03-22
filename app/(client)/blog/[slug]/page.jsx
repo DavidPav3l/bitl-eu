@@ -18,6 +18,10 @@ async function getPost(slug) {
   return post;
 }
 
+export const metadata = {
+  title: "Blog Post | BITL Blog",
+};
+
 const myPortableTextComponents = {
   types: {
     image: ({ value }) => (
@@ -54,7 +58,7 @@ export default async function BlogPostPage({ params: { slug } }) {
             </p>
           </div>
         </div>
-        <div className="prose-headings:my-5 prose-headings:text-2xl prose-p:mb-5 prose-p:leading-7 prose-li:list-disc prose-li:leading-7 prose-li:ml-4 m-auto text-justify">
+        <div className="m-auto text-justify prose-headings:my-5 prose-headings:text-2xl prose-p:mb-5 prose-p:leading-7 prose-li:ml-4 prose-li:list-disc prose-li:leading-7">
           <PortableText
             clas
             value={post.body}

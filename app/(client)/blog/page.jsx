@@ -5,6 +5,10 @@ import Link from "next/link";
 import { User } from "lucide-react";
 import { CalendarDays } from "lucide-react";
 
+export const metadata = {
+  title: "Blog Posts | BITL Blog",
+};
+
 async function getPosts() {
   const query = `*[_type == "post"] {
     title,

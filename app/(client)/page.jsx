@@ -9,6 +9,10 @@ import mobilitiesImg from "@/assets/mobilitiesCover.jpeg";
 import blogImg from "@/assets/blog-ilustration.svg";
 import footImg from "@/assets/carbon-ilustration.png";
 
+export const metadata = {
+  title: "Home | BITL Blog",
+};
+
 export default async function Home() {
   return (
     <main className="mx-auto w-[calc(90%_-_16px)] max-w-screen-xl">
