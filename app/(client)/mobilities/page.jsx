@@ -16,6 +16,15 @@ import warmingIco from "@/assets/global-warming.png";
 import learnIco from "@/assets/online-learning.png";
 import comIco from "@/assets/talking.png";
 
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+
 const flags = [
   { flag: RomaniaFlag, country: "romania" },
   { flag: IrlandFlag, country: "ireland" },
@@ -121,25 +130,43 @@ function Activities({
 export default function MobilitiesPage() {
   return (
     <main className="mx-auto w-[calc(90%_-_16px)] max-w-screen-xl">
-      <section className="mb-20 flex min-h-[calc(100vh_-_100px)] w-full flex-col items-center justify-center gap-10 md:gap-16">
-        <h3 className="self-start text-4xl font-extralight md:text-5xl lg:text-6xl">
+      <section className="mb-3 mt-20 min-h-[calc(80vh_-_100px)] w-full space-y-10 sm:mt-32 md:gap-16 md:space-y-20 lg:mt-44 lg:space-y-24">
+        <h3 className="text-center text-4xl font-bold md:text-5xl lg:text-6xl">
           Partener Countries
         </h3>
-        <div className="grid w-full grid-cols-1 items-center justify-items-center gap-14 min-[450px]:grid-cols-5 sm:gap-16 md:gap-14">
-          {flags.map((flag, index) => (
-            <Link key={index} href={`/${flag.country}`}>
-              <Image
-                src={flag.flag}
-                alt="Flag"
-                className="w-20 rounded-[50%] shadow-lg shadow-zinc-300 transition-all duration-300 hover:scale-105"
-              />
-            </Link>
-          ))}
-        </div>
+        <Carousel className="mx-auto w-[70%] max-w-xs lg:max-w-xl">
+          <CarouselContent className="-ml-1">
+            {flags.map((flag, index) => (
+              <CarouselItem
+                key={index}
+                className="pl-1 md:basis-1/3 lg:basis-1/5"
+              >
+                <div className="p-1">
+                  <Link
+                    key={index}
+                    className=" flex aspect-square items-center justify-center"
+                    href={`/${flag.country}`}
+                  >
+                    <Image
+                      src={flag.flag}
+                      alt="Flag"
+                      className="w-20 rounded-[50%] shadow-lg shadow-zinc-300 transition-all duration-300 hover:scale-105"
+                    />
+                  </Link>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
         <div className="flex w-full flex-col items-start justify-start">
           <p className="text-lg">
-            Welcome to our collaborative{" "}
-            <span className="font-bold">Erasmus+</span>
+            <span className="text-2xl font-bold text-emerald-500 lg:text-3xl">
+              Welcome
+            </span>{" "}
+            to our collaborative{" "}
+            <span className="font-bold text-orange-500">Erasmus+</span>
             project, a joint effort driven by partner schools in{" "}
             <span className="font-bold">Romania</span>,{" "}
             <span className="font-bold">Türkiye</span>,{" "}
@@ -155,7 +182,8 @@ export default function MobilitiesPage() {
               impacts of climate change
             </span>
             . <br />
-            By raising <span className="font-bold">awareness</span> among
+            By raising{" "}
+            <span className="font-bold text-emerald-500">awareness</span> among
             participants, we foster a deep understanding of the urgent need for
             climate precautions.
           </p>

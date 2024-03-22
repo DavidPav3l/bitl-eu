@@ -14,7 +14,7 @@ export default function Navbar() {
       >
         <Link href="/">
           <span className="font-light tracking-wider">BITL</span>{" "}
-          <span className="font-bold">Blog</span>
+          <span className="font-bold text-emerald-500">Blog</span>
         </Link>
       </Button>
       <menu className="hidden gap-10 sm:flex">

@@ -29,7 +29,7 @@ export default async function Home() {
             </p>
             <p className="sm:text-lg">
               Project number:{" "}
-              <span className="font-semibold sm:font-bold">
+              <span className="font-semibold text-emerald-500 sm:font-bold">
                 2021-1-RO01-KA220-SCH-000032488
               </span>
             </p>
@@ -103,11 +103,11 @@ export default async function Home() {
             for a <span className="font-bold">greener future</span>.
           </p>
           <Button className="mx-auto hidden lg:grid" size="lg" asChild>
-            <Link href="/blog">Take me there</Link>
+            <Link href="/blog">Let&apos;s see</Link>
           </Button>
         </div>
         <Button className="order-3 mx-auto lg:hidden" size="lg" asChild>
-          <Link href="/blog">Take me there</Link>
+          <Link href="/blog">Let&apos;s see</Link>
         </Button>
       </section>
       <section className="mb-36 flex flex-col items-center gap-10 lg:min-h-[60vh] lg:flex-row lg:justify-between">
@@ -123,7 +123,7 @@ export default async function Home() {
             through your activities.
           </p>
           <Button className="mx-auto hidden lg:grid" size="lg" asChild>
-            <Link href="/footprint">Take me there</Link>
+            <Link href="/footprint">Calculate</Link>
           </Button>
         </div>
         <Image
@@ -133,7 +133,7 @@ export default async function Home() {
           alt="Carbon footprint ilustration"
         />
         <Button className="mx-auto lg:hidden" size="lg" asChild>
-          <Link href="/footprint">Take me there</Link>
+          <Link href="/footprint">Calculate</Link>
         </Button>
       </section>
     </main>
