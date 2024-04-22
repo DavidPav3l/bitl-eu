@@ -129,17 +129,17 @@ export default function LocationForm() {
     try {
       const { city } = data;
       const coordRes = await fetch(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=30bcadb9e0bb6b68d9159e49e5a8ae07`,
+        `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=30bcadb9e0bb6b68d9159e49e5a8ae07`,
       );
 
       const [{ lat, lon }] = await coordRes.json();
       const airRes = await fetch(
-        `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=30bcadb9e0bb6b68d9159e49e5a8ae07`,
+        `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=30bcadb9e0bb6b68d9159e49e5a8ae07`,
       );
       const airObj = await airRes.json();
-
+      console.log(airObj);
       const cityRes = await fetch(
-        `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=30bcadb9e0bb6b68d9159e49e5a8ae07`,
+        `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=30bcadb9e0bb6b68d9159e49e5a8ae07`,
       );
 
       const cityObj = await cityRes.json();
