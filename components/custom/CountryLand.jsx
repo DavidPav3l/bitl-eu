@@ -1,6 +1,6 @@
 export default function CountryLand({ title }) {
   return (
-    <section className="mx-auto mb-20 flex min-h-[calc(100vh_-_150px)] w-[calc(90%_-_16px)] max-w-screen-xl items-center justify-center py-4">
+    <section className="animate-show-up mx-auto mb-20 flex min-h-[calc(100vh_-_150px)] w-[calc(90%_-_16px)] max-w-screen-xl items-center justify-center py-4">
       <div className="relative flex flex-col items-center justify-center gap-3 px-2">
         <h1 className="text-4xl uppercase min-[315px]:text-5xl sm:text-7xl sm:tracking-widest lg:text-8xl">
           {title}

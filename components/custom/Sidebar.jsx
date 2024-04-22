@@ -38,7 +38,7 @@ function CountryLink({ href, name, photo }) {
 }
 
 export default function Sidebar() {
-  const isDesktop = useMediaQuery("(min-width: 640px)");
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
 
   return (
     <>
@@ -72,6 +72,20 @@ export default function Sidebar() {
                       <SheetClose asChild>
                         <Link className="text-2xl" href="/footprint">
                           Footprint
+                        </Link>
+                      </SheetClose>
+                    </li>
+                    <li>
+                      <SheetClose asChild>
+                        <Link className="text-2xl" href="/air">
+                          Air Quality
+                        </Link>
+                      </SheetClose>
+                    </li>
+                    <li>
+                      <SheetClose asChild>
+                        <Link className="text-2xl" href="/ai">
+                          EcoScan
                         </Link>
                       </SheetClose>
                     </li>

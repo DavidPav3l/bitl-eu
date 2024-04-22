@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://bitlblog.tech
+
+# Sitemaps
+Sitemap: https://bitlblog.tech/sitemap.xml

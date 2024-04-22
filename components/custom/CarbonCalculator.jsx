@@ -147,12 +147,20 @@ export default function CarbonCalculator() {
   }
 
   return (
-    <div className="mx-auto my-20 w-[calc(90%_-_16px)] max-w-screen-xl space-y-10 rounded-md shadow-zinc-300 lg:border lg:px-8 lg:py-16 lg:shadow-lg">
+    <div className="relative mx-auto mb-10 mt-20 w-[calc(90%_-_16px)] max-w-screen-xl space-y-10 rounded pb-6 pt-12 shadow-zinc-300 sm:mt-24 lg:mt-32 lg:border-2 lg:px-8 lg:pb-16 lg:pt-20 lg:shadow-lg">
+      {showRez === false ? (
+        <h1 className="absolute -top-6 left-1/2 w-max -translate-x-1/2 bg-white text-center text-2xl font-medium xs:-top-7 xs:text-3xl sm:-top-8 sm:text-4xl lg:-top-[50px] lg:px-6 lg:text-5xl">
+          Calculate your <br /> Carbon Footprint
+        </h1>
+      ) : (
+        <h1 className="absolute -top-6 left-1/2 w-max -translate-x-1/2 bg-white text-center text-2xl font-medium xs:-top-7 xs:text-3xl sm:-top-8 sm:text-4xl lg:-top-[50px] lg:px-6 lg:text-5xl">
+          Your
+          <br />
+          Carbon Footprint
+        </h1>
+      )}
       {showRez === false ? (
         <div className="space-y-16">
-          <h1 className="text-center text-3xl font-bold sm:text-4xl lg:text-5xl">
-            Calculate your carbon footprint
-          </h1>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 ">
               <div className="flex flex-col gap-8 lg:flex-row lg:justify-between">
@@ -335,54 +343,49 @@ export default function CarbonCalculator() {
           </Form>
         </div>
       ) : (
-        <div className="ms:space-y-8 space-y-6 lg:space-y-10">
-          <h2 className="text-center text-3xl font-bold sm:text-4xl lg:text-5xl">
-            Your carbon footprint is
-          </h2>
+        <div className="space-y-6 lg:space-y-12">
           <span
-            className={`block text-center text-5xl font-black tracking-wider sm:text-7xl lg:text-8xl ${growingRez <= 7500 ? "text-green-600" : growingRez <= 12000 ? "text-amber-400" : "text-red-600"}`}
+            className={`block text-center text-4xl font-black tracking-wider sm:text-5xl lg:text-7xl ${growingRez <= 7500 ? "text-green-600" : growingRez <= 12000 ? "text-amber-400" : "text-red-600"}`}
           >
             {growingRez} <br />
-            <span className="text-2xl text-secondary-foreground xs:text-3xl sm:text-5xl lg:text-6xl">
-              kg CO2 / year
+            <span className="text-xl font-medium text-black xs:text-2xl sm:text-3xl lg:text-4xl">
+              KG CO2 / year
             </span>
           </span>
-          <div className="space-y-2">
-            <p className="text-sm text-muted-foreground">
-              *The information you&apos;ve received is indeed helpful in giving
-              you an estimation of your carbon footprint. However, it&apos;s
-              essential to understand that it may not provide a 100% accurate
-              representation.
-            </p>
-            <ul className="space-y-3">
-              <li>
-                <p className="text-muted-foreground sm:text-lg lg:text-xl">
-                  <span className="font-semibold text-green-600">
-                    Less than 7500 kg CO2 / year
-                  </span>{" "}
-                  - this is considered a good carbon footprint and is lower than
-                  average.
-                </p>
-              </li>
-              <li>
-                <p className="text-muted-foreground sm:text-lg lg:text-xl">
-                  <span className="font-semibold text-amber-400">
-                    Between 7500 and 12000 kg CO2 / year
-                  </span>{" "}
-                  - this is considered an average carbon footprint.
-                </p>
-              </li>
-              <li>
-                <p className="text-muted-foreground sm:text-lg lg:text-xl">
-                  <span className="font-semibold text-red-600">
-                    More than 12000 kg CO2 / year
-                  </span>{" "}
-                  - this is considered a higher than average carbon footprint
-                  and you should start taking steps to bring that number down.
-                </p>
-              </li>
-            </ul>
-          </div>
+
+          <p className="text-sm text-muted-foreground">
+            *The information you&apos;ve received may not provide a 100%
+            accurate representation of your carbon footprint.
+          </p>
+
+          <ul className="space-y-4 lg:space-y-6">
+            <li>
+              <p className="text-muted-foreground sm:text-lg lg:text-xl">
+                <span className="font-semibold text-green-600">
+                  Less than 7500 kg CO2 / year
+                </span>{" "}
+                - this is considered a good carbon footprint and is lower than
+                average.
+              </p>
+            </li>
+            <li>
+              <p className="text-muted-foreground sm:text-lg lg:text-xl">
+                <span className="font-semibold text-amber-400">
+                  Between 7500 and 12000 kg CO2 / year
+                </span>{" "}
+                - this is considered an average carbon footprint.
+              </p>
+            </li>
+            <li>
+              <p className="text-muted-foreground sm:text-lg lg:text-xl">
+                <span className="font-semibold text-red-600">
+                  More than 12000 kg CO2 / year
+                </span>{" "}
+                - this is considered a higher than average carbon footprint and
+                you should start taking steps to bring that number down.
+              </p>
+            </li>
+          </ul>
 
           <Accordion type="single" collapsible>
             <AccordionItem value="item-1">

@@ -8,6 +8,8 @@ import Logo from "@/assets/logo.jpg";
 import mobilitiesImg from "@/assets/mobilitiesCover.jpeg";
 import blogImg from "@/assets/blog-ilustration.svg";
 import footImg from "@/assets/carbon-ilustration.png";
+import airImg from "@/assets/air.png";
+import objImg from "@/assets/object.png";
 
 export const metadata = {
   title: "Home | BITL Blog",
@@ -16,7 +18,7 @@ export const metadata = {
 export default async function Home() {
   return (
     <main className="mx-auto w-[calc(90%_-_16px)] max-w-screen-xl">
-      <section className="relative mb-20 mt-16 grid min-h-[calc(100vh_-_100px)] w-full grid-cols-1 items-center lg:mt-0 lg:grid-cols-2">
+      <section className="relative mb-20 mt-16 grid min-h-[calc(100vh_-_100px)] w-full animate-show-up grid-cols-1 items-center lg:mt-0 lg:grid-cols-2">
         <div className="flex flex-col items-start justify-center gap-3">
           <div className="flex flex-col items-start justify-center gap-3">
             <h1 className="text-4xl md:text-5xl lg:text-6xl">
@@ -38,9 +40,6 @@ export default async function Home() {
               </span>
             </p>
           </div>
-          {/* <Button size="lg">
-            <Link href="#discover">Discover</Link>
-          </Button> */}
         </div>
         <Image
           src={Logo}
@@ -54,7 +53,9 @@ export default async function Home() {
         <div className="flex max-w-[475px] flex-col items-center gap-10">
           <h2 className="text-center text-3xl md:text-4xl lg:text-5xl">
             Check out the{" "}
-            <span className="whitespace-nowrap">BITL Mobilities</span>
+            <span className="whitespace-nowrap font-semibold text-emerald-500">
+              BITL Mobilities
+            </span>
           </h2>
           <p className="text-center text-lg">
             Welcome to our collaborative{" "}
@@ -69,7 +70,7 @@ export default async function Home() {
             <span className="whitespace-nowrap font-bold">Climate Change</span>{" "}
             and{" "}
             <span className="whitespace-nowrap font-bold">
-              social inclusion
+              Social Inclusion
             </span>
             .
           </p>
@@ -97,7 +98,9 @@ export default async function Home() {
         <div className="order-1 flex max-w-[475px] flex-col items-center gap-10 lg:order-2">
           <h2 className="text-center text-3xl md:text-4xl lg:text-5xl">
             Drop an eye over the{" "}
-            <span className="whitespace-nowrap">BITL Blog</span>
+            <span className="whitespace-nowrap font-semibold text-emerald-500">
+              BITL Blog
+            </span>
           </h2>
           <p className="text-center text-lg">
             A platform to showcase every school&apos;s{" "}
@@ -118,7 +121,9 @@ export default async function Home() {
         <div className="flex max-w-[475px] flex-col items-center gap-10">
           <h2 className="text-center text-3xl md:text-4xl lg:text-5xl">
             Calculate your{" "}
-            <span className="whitespace-nowrap">Carbon Footprint</span>
+            <span className="whitespace-nowrap font-semibold text-emerald-500">
+              Carbon Footprint
+            </span>
           </h2>
           <p className="text-center text-lg">
             This handy tool helps you calculate your{" "}
@@ -138,6 +143,65 @@ export default async function Home() {
         />
         <Button className="mx-auto lg:hidden" size="lg" asChild>
           <Link href="/footprint">Calculate</Link>
+        </Button>
+      </section>
+      <section className="mb-36 flex flex-col items-center gap-10 lg:min-h-[60vh] lg:flex-row lg:justify-between">
+        <Image
+          priority
+          className="order-2 w-full max-w-[150px] rounded  lg:max-w-[275px]"
+          src={airImg}
+          alt="Air ilustration"
+        />
+        <div className="order-1 flex max-w-[475px] flex-col items-center gap-10 lg:order-2">
+          <h2 className="text-center text-3xl md:text-4xl lg:text-5xl">
+            Check the{" "}
+            <span className="whitespace-nowrap font-semibold text-emerald-500">
+              Air Quality
+            </span>
+          </h2>
+          <p className="text-center text-lg">
+            A powerful tool designed to give you{" "}
+            <span className="font-bold">real-time insights</span> into the air
+            quality of your city of choice.
+          </p>
+          <Button className="mx-auto hidden lg:grid" size="lg" asChild>
+            <Link href="/air">Let&apos;s check</Link>
+          </Button>
+        </div>
+        <Button className="order-3 mx-auto lg:hidden" size="lg" asChild>
+          <Link href="/air">Let&apos;s check</Link>
+        </Button>
+      </section>
+      <section className="mb-36 flex flex-col items-center gap-10 lg:min-h-[60vh] lg:flex-row lg:justify-between">
+        <div className="flex max-w-[475px] flex-col items-center gap-10">
+          <h2 className="text-center text-3xl md:text-4xl lg:text-5xl">
+            What is <br />{" "}
+            <span className="whitespace-nowrap font-semibold text-emerald-500">
+              EcoScan
+            </span>
+            ?
+          </h2>
+          <p className="text-center text-lg">
+            Just snap a picture of any object, and{" "}
+            <span className="font-bold">EcoScan</span> will tell you all about
+            it. From what it&apos;s made of to how it&apos;s made, EcoScan{" "}
+            <span className="font-bold">
+              rates each item on how eco-friendly it is
+            </span>
+            .
+          </p>
+          <Button className="mx-auto hidden lg:grid" size="lg" asChild>
+            <Link href="/ai">Scan</Link>
+          </Button>
+        </div>
+        <Image
+          priority
+          className="w-full max-w-[200px] rounded  lg:max-w-[325px]"
+          src={objImg}
+          alt="Ai Object Scan Ilustration"
+        />
+        <Button className="mx-auto lg:hidden" size="lg" asChild>
+          <Link href="/ai">Scan</Link>
         </Button>
       </section>
     </main>
