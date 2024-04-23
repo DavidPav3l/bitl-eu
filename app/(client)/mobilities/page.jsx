@@ -134,10 +134,10 @@ function Activities({
 export default function MobilitiesPage() {
   return (
     <main className="mx-auto w-[calc(90%_-_16px)] max-w-screen-xl">
-      <section className="animate-show-up mb-3 mt-20 min-h-[calc(80vh_-_100px)] w-full space-y-10 sm:mt-32 md:gap-16 md:space-y-20 lg:mt-44 lg:space-y-24">
-        <h3 className="text-center text-4xl font-bold md:text-5xl lg:text-6xl">
+      <section className="mb-3 mt-20 min-h-[calc(80vh_-_100px)] w-full animate-show-up space-y-10 sm:mt-32 md:gap-16 md:space-y-20 lg:mt-44 lg:space-y-24">
+        <h2 className="text-center text-4xl font-bold md:text-5xl lg:text-6xl">
           Partener Countries
-        </h3>
+        </h2>
         <Carousel className="mx-auto w-[70%] max-w-xs lg:max-w-xl">
           <CarouselContent className="-ml-1">
             {flags.map((flag, index) => (

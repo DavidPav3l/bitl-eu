@@ -149,11 +149,11 @@ export default function CarbonCalculator() {
   return (
     <div className="relative mx-auto mb-10 mt-20 w-[calc(90%_-_16px)] max-w-screen-xl space-y-10 rounded pb-6 pt-12 shadow-zinc-300 sm:mt-24 lg:mt-32 lg:border-2 lg:px-8 lg:pb-16 lg:pt-20 lg:shadow-lg">
       {showRez === false ? (
-        <h1 className="absolute -top-6 left-1/2 w-max -translate-x-1/2 bg-white text-center text-2xl font-medium xs:-top-7 xs:text-3xl sm:-top-8 sm:text-4xl lg:-top-[50px] lg:px-6 lg:text-5xl">
+        <h1 className="absolute -top-6 left-1/2 w-max -translate-x-1/2 bg-white text-center text-2xl font-bold xs:-top-7 xs:text-3xl sm:-top-8 sm:text-4xl lg:-top-[50px] lg:px-6 lg:text-5xl">
           Calculate your <br /> Carbon Footprint
         </h1>
       ) : (
-        <h1 className="absolute -top-6 left-1/2 w-max -translate-x-1/2 bg-white text-center text-2xl font-medium xs:-top-7 xs:text-3xl sm:-top-8 sm:text-4xl lg:-top-[50px] lg:px-6 lg:text-5xl">
+        <h1 className="absolute -top-6 left-1/2 w-max -translate-x-1/2 bg-white text-center text-2xl font-bold xs:-top-7 xs:text-3xl sm:-top-8 sm:text-4xl lg:-top-[50px] lg:px-6 lg:text-5xl">
           Your
           <br />
           Carbon Footprint

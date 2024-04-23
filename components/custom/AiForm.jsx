@@ -5,11 +5,11 @@ import { useDropzone } from "react-dropzone";
 
 import { Button } from "@/components/ui/button";
 
-import { X } from "lucide-react";
-
 import Image from "next/image";
 
 import { GetImgDescp } from "@/lib/actions/ImageDescpAction";
+
+import { useToast } from "../ui/use-toast";
 
 function DropBox({ onDrop }) {
   const { getRootProps, getInputProps, open } = useDropzone({
@@ -25,7 +25,7 @@ function DropBox({ onDrop }) {
   return (
     <section>
       <div
-        className="flex h-40 flex-col items-center justify-center rounded-lg border-2 border-dashed border-neutral-300 p-2 transition-all duration-300 ease-in-out hover:border-neutral-500"
+        className="flex h-40 w-full flex-col items-center justify-center rounded-lg border-2 border-dashed border-neutral-300 p-2 transition-all duration-300 ease-in-out hover:border-neutral-500"
         {...getRootProps()}
       >
         <input {...getInputProps()} />
@@ -42,56 +42,69 @@ function DropBox({ onDrop }) {
   );
 }
 
-const ShowImage = ({ images, handleRemoveImage }) => {
+const ShowImage = ({ image }) => {
   return (
-    <div className="space-y-3">
-      <h2 className="text-lg font-semibold">Images</h2>
-      <ul className="flex flex-wrap items-center justify-start gap-5">
-        {images.map((image) => (
-          <li key={image.id} className="relative h-40 w-56 overflow-visible">
+    <div>
+      {image !== null && (
+        <div className="space-y-4">
+          <h2 className="text-center text-xl font-semibold sm:text-2xl lg:text-3xl">
+            Image Preview
+          </h2>
+          <div className="relative h-60 w-full overflow-hidden">
             <Image
               src={image.src}
+              style={{ objectFit: "contain", objectPosition: "top" }}
               alt="image"
-              layout="fill"
-              objectFit="cover"
-              className="rounded-lg"
+              fill={true}
+              className=""
             />
-            <Button
-              type="button"
-              variant="destructive"
-              className="absolute -right-1 -top-1 z-20 h-[1.75rem] w-[1.75rem] rounded-full bg-white p-0.5 shadow-md shadow-neutral-700"
-              onClick={() => handleRemoveImage(image.id)}
-            >
-              <X className="h-6 w-6 text-black" />
-            </Button>
-          </li>
-        ))}
-      </ul>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
-export default function ImageUpload({}) {
-  const [images, setImages] = useState([]);
+function ShowRez({ image }) {
+  return (
+    <div>
+      <h3></h3>
+    </div>
+  );
+}
 
-  function handleAddImage(image) {
-    setImages((prevState) => [image]);
-  }
+export default function ImageUpload() {
+  const [image, setImage] = useState(null);
 
-  function handleRemoveImage(id) {
-    setImages((prevState) => prevState.filter((image) => image.id !== id));
+  const [aiInfo, setAiInfo] = useState(null);
+
+  const { toast } = useToast();
+
+  function handleAddImage(img) {
+    setImage(img);
   }
 
   async function onSubmit(img) {
     try {
-      const res = await GetImgDescp(img[0].src);
-      console.log(res);
+      const res = await GetImgDescp(img.src);
+      if (res.status === 200) {
+        console.log(res.data);
+        setAiInfo(res.data);
+      }
     } catch (error) {
       console.log(error);
     }
   }
 
   const onDrop = useCallback((acceptedFiles) => {
+    if (acceptedFiles.length > 1) {
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Something went wrong.",
+        description: "You can only add one image!",
+      });
+      return;
+    }
     acceptedFiles.map((file, index) => {
       const reader = new FileReader();
       reader.onload = function (e) {
@@ -108,18 +121,24 @@ export default function ImageUpload({}) {
   }, []);
 
   return (
-    <div className="flex flex-col gap-4">
-      <DropBox onDrop={onDrop} />
-      <div className="flex items-center justify-between">
-        <Button
-          disabled={images.length === 0}
-          onClick={() => onSubmit(images)}
-          type="submit"
-        >
-          Submit
-        </Button>
-      </div>
-      <ShowImage images={images} handleRemoveImage={handleRemoveImage} />
+    <div>
+      {aiInfo === null ? (
+        <div className="mx-auto max-w-screen-sm space-y-4">
+          <DropBox onDrop={onDrop} />
+          <Button
+            disabled={image === null}
+            onClick={() => onSubmit(image)}
+            type="submit"
+          >
+            Submit
+          </Button>
+          <ShowImage image={image} />
+        </div>
+      ) : (
+        <div>
+          <h1>YUpi</h1>
+        </div>
+      )}
     </div>
   );
 }
